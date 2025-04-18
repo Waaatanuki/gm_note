@@ -17,6 +17,7 @@ export default defineConfig({
         text: '服务器',
         items: [
           { text: 'docker', link: '/server/docker' },
+          { text: 'prisma', link: '/server/prisma' },
           { text: 'mysql', link: '/server/mysql' },
           { text: 'mongo', link: '/server/mongo' },
         ]

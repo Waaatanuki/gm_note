@@ -25,10 +25,14 @@ docker exec -it gbf.mysql mysql -u root -p
 
 # 基础操作
 SHOW DATABASES;
+CREATE DATABASE database_name;
 USE database_name;
 SHOW TABLES;
 DESC table_name;
 SELECT VERSION();
+
+# 显示建表语句
+SHOW CREATE TABLE gbf_code;
 
 # 用户权限管理
 CREATE USER 'username'@'%' IDENTIFIED BY 'password';
@@ -56,14 +60,15 @@ DELETE FROM gbf_code WHERE redeem_time < 1717027200;
 ## 建表语句
 ```sql
 CREATE TABLE gbf_code (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     code VARCHAR(36) NOT NULL UNIQUE COMMENT '激活码(UUID格式)',
-    account_id BIGINT NULL COMMENT '使用用户ID',
-    creat_time BIGINT NOT NULL COMMENT '创建时间',
-    redeem_time BIGINT NULL COMMENT '激活时间',
-    days INT NOT NULL COMMENT '激活天数',
-    status TINYINT NOT NULL DEFAULT 0 COMMENT '状态（0-未使用,1-已使用,3-禁用）',
+    account_id BIGINT UNSIGNED NULL COMMENT '使用用户ID',
+    creat_time BIGINT UNSIGNED NOT NULL COMMENT '创建时间',
+    export_time BIGINT UNSIGNED NULL COMMENT '导出时间',
+    redeem_time BIGINT UNSIGNED NULL COMMENT '激活时间',
+    days INT UNSIGNED NOT NULL COMMENT '激活天数',
+    status TINYINT NOT NULL DEFAULT 0 COMMENT '状态（0-未使用,1-已使用,2-禁用）',
 
     INDEX idx_code (code)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='激活码表';
-```sql
+```
