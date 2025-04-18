@@ -4,7 +4,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "GM NOTE",
   description: "note",
-  base:"gm_note",
+  base:"/gm_note/",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
