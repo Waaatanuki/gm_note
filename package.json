@@ -1,10 +1,18 @@
 {
-  "devDependencies": {
-    "vitepress": "^1.6.3"
-  },
+  "type": "module",
+  "packageManager": "pnpm@10.8.1",
   "scripts": {
     "docs:dev": "vitepress dev",
     "docs:build": "vitepress build",
     "docs:preview": "vitepress preview"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^4.12.0",
+    "@types/node": "^22.14.1",
+    "@unocss/eslint-plugin": "66.1.0-beta.12",
+    "eslint": "^9.24.0",
+    "eslint-plugin-format": "^1.0.1",
+    "unocss": "66.1.0-beta.12",
+    "vitepress": "^1.6.3"
   }
 }
