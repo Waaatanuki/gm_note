@@ -31,11 +31,29 @@ docker logs <container_id>
 docker rm <container_id>
 docker rmi <image_id>
 
-# 查看网络列表
-docker network ls
-
 # 查看镜像列表
 docker images
+```
+
+## 网络管理
+```bash
+# 创建自定义网络（默认桥接模式）
+docker network create gbf.net
+
+# 查看所有网络
+docker network ls
+
+# 检查网络详细信息
+docker network inspect gbf.net
+
+# 将容器连接到网络
+docker network connect gbf.net <container_id>
+
+# 断开容器网络连接
+docker network disconnect gbf.net <container_id>
+
+# 删除未使用的网络
+docker network prune
 ```
 
 ## Volume管理
