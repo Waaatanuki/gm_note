@@ -14,10 +14,11 @@ export default defineConfig({
 
     sidebar: [
       {
-        text: 'Examples',
+        text: '服务器',
         items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
+          { text: 'docker', link: '/server/docker' },
+          { text: 'mysql', link: '/server/mysql' },
+          { text: 'mongo', link: '/server/mongo' },
         ]
       }
     ],
