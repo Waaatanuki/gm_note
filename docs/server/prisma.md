@@ -23,6 +23,9 @@ npx prisma studio
 # 生成数据模型文档
 npx prisma-docs-generator
 
+# 拉取数据库Schema到Prisma Schema文件
+npx prisma db pull
+
 # 推送Schema变更到数据库（不生成迁移）
 npx prisma db push
 
