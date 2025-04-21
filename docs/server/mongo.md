@@ -7,15 +7,13 @@ docker run  \
   --restart always \
   --network gbf.net \
   -p 27017:27017 \
-  -v mongo_volume:/data/db \
-  -v /e/linux/etc/mongo/mongod.conf:/etc/mongo/mongod.conf \
+  -v mongo.volume:/data/db \
+  -v /etc/mongo/mongod.conf:/etc/mongo/mongod.conf \
   -e MONGO_INITDB_ROOT_USERNAME=root \
-  -e MONGO_INITDB_ROOT_PASSWORD=*** \
+  -e MONGO_INITDB_ROOT_PASSWORD=gbf \
   -e LANG=C.UTF-8 \
   -d mongo:8.0.6-noble \
   --config /etc/mongo/mongod.conf
-
-docker run --name gbf.mongo --restart always --network gbf.net -p 27017:27017 -v mongo_volume:/data/db -v /e/linux/etc/mongo/mongod.conf:/etc/mongo/mongod.conf -e MONGO_INITDB_ROOT_USERNAME=root -e MONGO_INITDB_ROOT_PASSWORD=gbf -e LANG=C.UTF-8 -d mongo:8.0.6-noble --config /etc/mongo/mongod.conf
 ```
 
 ## 常用命令

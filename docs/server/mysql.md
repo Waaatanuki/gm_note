@@ -6,17 +6,15 @@ docker run  \
   --name gbf.mysql  \
   --restart always  \
   --network gbf.net  \
-  -v mysql_volume:/var/lib/mysql  \
+  -v mysql.volume:/var/lib/mysql  \
   -p 3306:3306  \
   -p 33060:33060  \
   -e LANG=C.UTF-8  \
-  -e MYSQL_ROOT_PASSWORD=***  \
+  -e MYSQL_ROOT_PASSWORD=gbf  \
   -d mysql:8.4  \
   --character-set-server=utf8mb4  \
   --collation-server=utf8mb4_general_ci  \
   --default_time_zone=Asia/Shanghai
-
-docker run --name gbf.mysql --restart always --network gbf.net -v mysql_volume:/var/lib/mysql -p 3306:3306 -p 33060:33060 -e LANG=C.UTF-8 -e MYSQL_ROOT_PASSWORD=gbf -d mysql:8.4 --character-set-server=utf8mb4 --collation-server=utf8mb4_general_ci --default_time_zone=Asia/Shanghai
 ```
 ## 常用命令
 ```bash
