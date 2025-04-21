@@ -5,6 +5,9 @@ export default defineConfig({
   title: "GM NOTE",
   description: "note",
   base:"/gm_note/",
+  head:[
+    ['link', { rel: 'icon', href: '/The-Earth/favicon.ico' }],
+  ],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
@@ -20,6 +23,19 @@ export default defineConfig({
           { text: 'prisma', link: '/server/prisma' },
           { text: 'mysql', link: '/server/mysql' },
           { text: 'mongo', link: '/server/mongo' },
+        ]
+      },
+      {
+        text: '客户端',
+        items: [
+          { text: '激活码', link: '/client/code' },
+        ]
+      },
+      {
+        text: '开发',
+        items: [
+          { text: 'WSL', link: '/dev/wsl' },
+          { text: 'Ubuntu', link: '/dev/ubuntu' },
         ]
       }
     ],
