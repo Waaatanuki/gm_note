@@ -6,7 +6,7 @@ export default defineConfig({
   description: "note",
   base:"/gm_note/",
   head:[
-    ['link', { rel: 'icon', href: '/The-Earth/favicon.ico' }],
+    ['link', { rel: 'icon', href: '/gm_note/favicon.ico' }],
   ],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
