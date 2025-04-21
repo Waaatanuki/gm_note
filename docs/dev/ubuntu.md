@@ -21,3 +21,12 @@ sudo gpasswd -a xxx docker
 #更新docker组
 newgrp docker
 ```
+
+## git
+```bash
+# /etc/hosts增加
+140.82.113.4 github.com
+
+# 调整密钥权限
+sudo chmod 700 public-key.pem
+```
