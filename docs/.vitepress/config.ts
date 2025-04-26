@@ -23,6 +23,7 @@ export default defineConfig({
           { text: 'prisma', link: '/server/prisma' },
           { text: 'mysql', link: '/server/mysql' },
           { text: 'mongo', link: '/server/mongo' },
+          { text: 'redis', link: '/server/redis' },
         ]
       },
       {
