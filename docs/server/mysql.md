@@ -114,5 +114,5 @@ CREATE TABLE `gbf_reward_battle` (
   KEY `idx_uid_timestamp` (`uid`,`timestamp`),
   KEY `idx_timestamp` (`timestamp`),
   KEY `idx_user_query` (`account_token`,`uid`,`quest_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci |
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
 ```
