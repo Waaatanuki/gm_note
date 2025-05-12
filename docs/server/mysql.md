@@ -32,6 +32,9 @@ SELECT VERSION();
 # 显示建表语句
 SHOW CREATE TABLE gbf_member_code;
 
+# 查看表的统计信息（近似值）
+SHOW TABLE STATUS LIKE 'gbf_member_code';
+
 # 用户权限管理
 CREATE USER 'username'@'%' IDENTIFIED BY 'password';
 GRANT ALL PRIVILEGES ON *.* TO 'username'@'%';
@@ -71,7 +74,7 @@ CREATE TABLE `gbf_member_code` (
   KEY `idx_code` (`code`),
   KEY `gbf_member_code_account_id_fkey` (`account_id`),
   CONSTRAINT `gbf_member_code_account_id_fkey` FOREIGN KEY (`account_id`) REFERENCES `gbf_member_user` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='激活码表'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='激活码表'
 ```
 
 ```sql
@@ -92,5 +95,24 @@ CREATE TABLE `gbf_member_user` (
   KEY `idx_uid` (`uid`),
   KEY `idx_create_time` (`create_time`),
   KEY `idx_update_time` (`update_time`)
-) ENGINE=InnoDB AUTO_INCREMENT=643 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
+```
+
+```sql
+CREATE TABLE `gbf_reward_battle` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `account_token` varchar(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `battle_id` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `quest_name` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `reward` varchar(4096) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `timestamp` bigint NOT NULL,
+  `uid` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `hash_id` varchar(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uniq_hash_id` (`hash_id`),
+  KEY `idx_account_token_timestamp` (`account_token`,`timestamp`),
+  KEY `idx_uid_timestamp` (`uid`,`timestamp`),
+  KEY `idx_timestamp` (`timestamp`),
+  KEY `idx_user_query` (`account_token`,`uid`,`quest_name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci |
 ```
